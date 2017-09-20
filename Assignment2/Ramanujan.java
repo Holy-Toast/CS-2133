@@ -1,4 +1,19 @@
+/**
+* This class calculates the Ramanujan number as given by the
+* user via the command line.
+*
+* @author Patrick Roeber
+*/
 public class Ramanujan {
+  
+  /**
+  * Calculates the Ramanujan number using the first element in the args
+  * array given by the user via the command line. Then calculates the 
+  * percent error of that number by comparing it to Math.PI.
+  *
+  * @param args A String array, the first element will be used
+  *             to find the Ramanujan number.
+  */
   public static void main(String[] args) {
     if(args.length < 1) {
       System.out.println("usage: Ramanujan <number>");
