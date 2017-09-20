@@ -39,6 +39,7 @@ public class Factorial {
   *
   * @param n The number of which the factorial will be
   *          taken of
+  * @return  A long representation of the factorial of n
   */
   public static long calculate(long n) {
     if(n < 0 || n > 20) {
