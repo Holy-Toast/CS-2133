@@ -1,7 +1,20 @@
-public class FibTest
-{
-  public static void main(String[] args)
-  {
+/**
+* This class calculates the Fibonacci numbers for
+* 5 and 7.
+*
+* @author Patrick Roeber
+*/
+public class FibTest {
+  /**
+  * Runs three tests. First, calculating the Fibonacci number
+  * for 5 and checking to see if it is 5. Second, calculating the
+  * Fibonacci number for 7 and checking to see if it is 13.
+  * Lastly, it compares the time it takes to calculate the
+  * Fibonacci number of 40 recursively and iteratively.
+  *
+  * @param args Unused in this class
+  */
+  public static void main(String[] args) {
     int fib5 = 5;
     int fib7 = 13;
 
@@ -42,20 +55,25 @@ public class FibTest
     System.out.println("Recusion takes: " + diffTime1 + " milliseconds.");
     System.out.println("Iteration takes: " + diffTime2 + " milliseconds.");
   }
-  public static int fibIter(int n)
-  {
+  
+  /**
+  * This function calculates the Fibonacci number using iteration.
+  *
+  * @param n An integer between 1 and 48 to take the Fibonacci number
+  *          of
+  * @return  An integer representation of the Fibonacci number taken
+  *          at n
+  */
+  public static int fibIter(int n) {
     int fib_number = 1;
     int fib1 = 1;
     int fib2 = 1;
-    if(n < 1 || n > 48)
-    {
+    if(n < 1 || n > 48) {
       System.out.println("N should be a positive integer less than 48");
       return -1;
     }
-    else
-    {
-      for(int i=3; i <= n; i++)
-      {
+    else {
+      for(int i=3; i <= n; i++) {
         fib_number = fib1 + fib2;
         fib2 = fib1;
         fib1 = fib_number;
@@ -64,28 +82,27 @@ public class FibTest
     }
   }
 
-  public static int fibRecur(int n)
-  {
-    if(n < 0 || n > 48)
-    {
+  /**
+  * This function calculates the Fibonacci number using recursion.
+  *
+  * @param n An integer between 1 and 48 to take the Fibonacci number
+  *          of
+  * @return  An integer representation of the Fibonacci number taken
+  *          at n
+  */
+  public static int fibRecur(int n) {
+    if(n < 0 || n > 48) {
       System.out.println("N should be a positive integer less than 48.");
       return -1;
     }
-    else if(n == 0)
-    {
+    else if(n == 0) {
       return 0;
     }
-    else if(n == 1 || n == 2)
-    {
+    else if(n == 1 || n == 2) {
       return 1;
     }
-    else
-    {
+    else {
       return fibRecur(n-1) + fibRecur(n-2);
     }
   }
-
-  //fib(1) = 1
-  //fib(2) = 1
-  //fib(n) = fib(n-1) + fib(n-2)
 }
