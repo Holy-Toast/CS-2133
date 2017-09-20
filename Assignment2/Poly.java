@@ -1,11 +1,22 @@
 import java.util.*;
 
+/**
+* This class provides a basis for constructing polynomials
+* and runs several tests on these polynomials.
+*
+* @author Patrick Roeber
+*/
 public class Poly {
   int length;
   int[] coeffs;
 
+  /**
+  * This creates two polynomials and runs tests on the various methods
+  * contained within this class.
+  *
+  * @param args Command line input. Not used in this program.
+  */
   public static void main(String[] args) {
-    // Test the various functions of the poly class
     int polyDeg1 = 5;
     int polyDeg2 = 5;
     int polyDeg3 = 4;
@@ -125,8 +136,14 @@ public class Poly {
     }
   }
 
+  /**
+  * Creates a polynomial using the given integer array.
+  * The index of the array is the power of x.
+  *
+  * @param coefficients The integer array used to create
+  *                     the polynomial.
+  */
   public Poly(int[] coefficients) {
-    // Contructs a polynomial from an array of integers
     length = coefficients.length;
     coeffs = new int[length];
 
@@ -134,9 +151,15 @@ public class Poly {
       coeffs[i] = coefficients[i];
     }
   }
-
+  
+  /**
+  * Creates a polynomial using the given list.
+  * The index of the list is the power of x.
+  *
+  * @param coefficients The list used to create
+  *                     the polynomial.
+  */
   public Poly(List<Integer> coefficients) {
-    // Contructs a polynomial from a list of integers
     length = coefficients.size();
     coeffs = new int[length];
 
@@ -144,9 +167,14 @@ public class Poly {
       coeffs[i] = coefficients.get(i);
     }
   }
-
+  
+  /**
+  * Returns the index of the highest non-zero coefficient
+  * in the polynomial.
+  *
+  * @return The degree of the polynomial
+  */
   public int degree() {
-    // Returns the power of the highest non-zero term
     for(int i=length - 1; i >= 0; i--) {
       if (coeffs[i] != 0) {
         return i;
@@ -154,7 +182,14 @@ public class Poly {
     }
     return 0;
   }
-
+  
+  /**
+  * Iterates over each element in the polynomial, determines
+  * the representation of each element and
+  * concatenates each string together to form one final string.
+  *
+  * @return The string representation of the polynomial
+  */
   @Override
   public String toString() {
     String final_string = "";
@@ -198,11 +233,18 @@ public class Poly {
     }
     return final_string;
   }
-
+  
+  /**
+  * Returns a polynomial which is the result of
+  * the addition of the current polynomail
+  * and another which is passed in as a.
+  *
+  * @param a The polynomial to be added with the
+  *          current polynomial
+  * @return  The polynomial that is the result of the
+  *          addition of the two
+  */
   public Poly add(Poly a) {
-    // Adds two polynomials together
-    // by adding together each scale degree in turn
-    // Returns a new polynomial
     List<Integer> result = new ArrayList<>();
     int sum = 0;
     for(int i=0; i<this.length; i++) {
@@ -216,10 +258,16 @@ public class Poly {
     Poly resultPoly = new Poly(result);
     return resultPoly;
   }
-
+  
+  /**
+  * Solves the polynomial where x is equal to
+  * the passed in variable.
+  *
+  * @param x The double to substitute x for
+  * @return  The result of adding each of the terms
+  *          after they have been multiplied out
+  */
   public double evaluate(double x) {
-    // Returns the value of the function at the point x
-    // evaluates the polynomial as x = x
     double sum = 0;
     for(int i=this.length-1; i>=0; i--) {
       sum = sum + (this.coeffs[i] * Math.pow(x, i));
