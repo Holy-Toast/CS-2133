@@ -23,14 +23,6 @@ public class TriPanel extends JPanel {
         else {
             newSide = size.width;
         }
-/*
-        for(int i=2048; i>0; i/=2) {
-            if(newSide >= i) {
-                newSide = i;
-                break;
-            }
-        }
-        */
         Dimension newSize = new Dimension(newSide, newSide);
         return newSize;
     }
