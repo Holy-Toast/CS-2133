@@ -1,10 +1,19 @@
 import javax.swing.*;
 import java.awt.*;
 /**
+ * Blueprint for the triangle panel object.
+ *
  * @author Patrick Roeber
  */
 public class TriPanel extends JPanel {
 
+    /**
+     * When called, gets the current width and height of the
+     * panel, corrects the dimension of the panel, then draws
+     * the triangles.
+     *
+     * @param g the graphics object provided by java
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
@@ -14,6 +23,14 @@ public class TriPanel extends JPanel {
         drawTriangle(0 ,0, panelSize, g);
     }
 
+    /**
+     * Takes in a dimension and finds the smaller of the two,
+     * then returns a new dimension that is a square using the smaller
+     * side of the given dimension.
+     *
+     * @param size the size to be corrected
+     * @return the corrected size
+     */
     private Dimension correctDimension(Dimension size) {
         int newSide;
 
@@ -23,8 +40,7 @@ public class TriPanel extends JPanel {
         else {
             newSide = size.width;
         }
-        Dimension newSize = new Dimension(newSide, newSide);
-        return newSize;
+        return new Dimension(newSide, newSide);
     }
 
     /**
