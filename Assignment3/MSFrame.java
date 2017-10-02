@@ -53,9 +53,5 @@ public class MSFrame extends JFrame {
                 }
             }
         }
-
-        public void paintComponent(Graphics g) {
-            super.paintComponent(g);
-        }
     }
 }
