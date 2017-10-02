@@ -1,10 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
 /**
+ * Creates the message panel which will be the panel
+ * that the program draws on.
+ *
  * @author Patrick Roeber.
  */
 public class MessagePanel extends JPanel {
 
+    /**
+     * Draws several lines, arcs, and ovals which all
+     * come together and form a bottle shape. Then it
+     * draws 4 lines of text inside the bottle.
+     *
+     * @param g the graphics object provided by java
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawOval(30, 10, 20, 10);
