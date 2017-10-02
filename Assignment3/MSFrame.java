@@ -35,7 +35,7 @@ public class MSFrame extends JFrame {
 
             for(int i=0; i<field.getNumCols(); i++) {
                 for(int j=0; j<field.getNumRows(); j++) {
-                    MineLabel newMine = new MineLabel("?", i, j);
+                    final MineLabel newMine = new MineLabel("?", i, j);
                     newMine.addMouseListener(new MouseAdapter() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
