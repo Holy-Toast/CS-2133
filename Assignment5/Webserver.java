@@ -3,19 +3,25 @@ import java.net.*;
 
 public class Webserver {
 
-    public static void main(String[] args) {
+    private Thread connection = null;
+
+    public Webserver() {
         try {
             ServerSocket serverSocket = new ServerSocket(9001);
             while(true) {
                 System.out.println("Waiting...");
                 Socket server = serverSocket.accept();
-                Thread connection =
-                        new Thread(new Client(server));
-                System.out.println("Connected!");
+                connection =
+                        new Thread(new Server(server));
+                System.out.println("Connected to " + server.getRemoteSocketAddress());
                 connection.start();
             }
         } catch(IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        new Webserver();
     }
 }
